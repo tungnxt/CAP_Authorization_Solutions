@@ -1,0 +1,5 @@
+roleId,description,note,status
+AppAdmin,Quản trị phân quyền (app Manage-Role),"Bootstrap từ BTP Role Collection, KHÔNG gán qua bảng này. Xem xs-security.json. Chỉ 1-2 người.",ACTIVE
+FIN_APP_ADMIN,Quản trị app Payment Approval,"Ví dụ bảng-first: định nghĩa trước, dev Payment Approval code @requires:'FIN_APP_ADMIN' theo roleId này.",ACTIVE
+FIN_APPROVE_L2,Duyệt payment cấp 2,Duyệt payment > 500tr. Chỉ trưởng phòng TC trở lên. KHÔNG gán cho nhân viên.,ACTIVE
+FIN_VIEWER,Xem báo cáo tài chính (chỉ đọc),Đang chờ dev implement. DRAFT ⇒ chưa cho gán — minh hoạ quy trình bảng-first.,DRAFT

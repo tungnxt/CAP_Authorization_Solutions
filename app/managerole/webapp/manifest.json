@@ -1,0 +1,313 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "managerole",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "dataSources": {
+      "mainService": {
+        "uri": "/admin/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "ManageRole-display": {
+          "semanticObject": "ManageRole",
+          "action": "display",
+          "title": "{{usersTitle}}",
+          "subTitle": "{{usersDescription}}",
+          "icon": "sap-icon://key-user-settings",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        },
+        "ManageRole-roles": {
+          "semanticObject": "ManageRole",
+          "action": "roles",
+          "title": "{{rolesTitle}}",
+          "subTitle": "{{rolesDescription}}",
+          "icon": "sap-icon://permission",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        },
+        "ManageRole-changelog": {
+          "semanticObject": "ManageRole",
+          "action": "changelog",
+          "title": "{{changeLogTitle}}",
+          "subTitle": "{{changeLogDescription}}",
+          "icon": "sap-icon://history",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        },
+        "ManageRole-config": {
+          "semanticObject": "ManageRole",
+          "action": "config",
+          "title": "{{configTitle}}",
+          "subTitle": "{{configDescription}}",
+          "icon": "sap-icon://settings",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://key-user-settings",
+      "favIcon": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.149.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "theme": "sap_horizon",
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "managerole.i18n.i18n",
+          "supportedLocales": ["en", "vi", ""],
+          "fallbackLocale": "en"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "UsersList",
+          "target": "UsersList"
+        },
+        {
+          "pattern": "Users({key}):?query:",
+          "name": "UsersObjectPage",
+          "target": "UsersObjectPage"
+        },
+        {
+          "pattern": "Roles/list:?query:",
+          "name": "RolesList",
+          "target": "RolesList"
+        },
+        {
+          "pattern": "Roles({key}):?query:",
+          "name": "RolesObjectPage",
+          "target": "RolesObjectPage"
+        },
+        {
+          "pattern": "ChangeLog/list:?query:",
+          "name": "ChangeLogList",
+          "target": "ChangeLogList"
+        },
+        {
+          "pattern": "Config/list:?query:",
+          "name": "ConfigList",
+          "target": "ConfigList"
+        },
+        {
+          "pattern": "Config({key}):?query:",
+          "name": "ConfigObjectPage",
+          "target": "ConfigObjectPage"
+        }
+      ],
+      "targets": {
+        "UsersList": {
+          "type": "Component",
+          "id": "UsersList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Users",
+              "variantManagement": "Page",
+              "initialLoad": "Enabled",
+              "navigation": {
+                "Users": {
+                  "detail": {
+                    "route": "UsersObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "selectionMode": "None",
+                    "condensedTableLayout": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "UsersObjectPage": {
+          "type": "Component",
+          "id": "UsersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Users",
+              "controlConfiguration": {
+                "roles/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "condensedTableLayout": true,
+                    "creationMode": {
+                      "name": "Inline"
+                    }
+                  }
+                },
+                "orgs/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "condensedTableLayout": true,
+                    "creationMode": {
+                      "name": "Inline"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "RolesList": {
+          "type": "Component",
+          "id": "RolesList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Roles",
+              "variantManagement": "Page",
+              "initialLoad": "Enabled",
+              "navigation": {
+                "Roles": {
+                  "detail": {
+                    "route": "RolesObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "RolesObjectPage": {
+          "type": "Component",
+          "id": "RolesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Roles"
+            }
+          }
+        },
+        "ChangeLogList": {
+          "type": "Component",
+          "id": "ChangeLogList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ChangeLog",
+              "variantManagement": "Page",
+              "initialLoad": "Enabled"
+            }
+          }
+        },
+        "ConfigList": {
+          "type": "Component",
+          "id": "ConfigList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Config",
+              "variantManagement": "None",
+              "initialLoad": "Enabled",
+              "navigation": {
+                "Config": {
+                  "detail": {
+                    "route": "ConfigObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ConfigObjectPage": {
+          "type": "Component",
+          "id": "ConfigObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Config"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "managerole"
+  }
+}

@@ -1,0 +1,315 @@
+@EndUserText.label : 'Buchungskreise'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_CHARACTER_NUMERIC
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #C
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table t001 {
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key mandt     : mandt not null
+    with foreign key [0..*,1] t000
+      where mandt = t001.mandt;
+  key bukrs     : bukrs not null;
+  butxt         : butxt;
+  ort01         : ort01;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  land1         : land1
+    with foreign key [0..*,1] t005
+      where mandt = t001.mandt
+        and land1 = t001.land1;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  waers         : waers
+    with foreign key [0..*,1] tcurc
+      where mandt = t001.mandt
+        and waers = t001.waers;
+  @AbapCatalog.textLanguage
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  spras         : spras
+    with foreign key [0..*,1] t002
+      where spras = t001.spras;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  ktopl         : ktopl
+    with foreign key [0..*,1] t004
+      where mandt = t001.mandt
+        and ktopl = t001.ktopl;
+  waabw         : waabw_001;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  periv         : periv
+    with foreign key [0..*,1] t009
+      where mandt = t001.mandt
+        and periv = t001.periv;
+  kokfi         : kokfi;
+  @AbapCatalog.foreignKey.label : 'Zuordnung Buchungskreis zu Gesellschaft'
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  rcomp         : rcomp_d
+    with foreign key [0..*,0..1] t880
+      where mandt = t001.mandt
+        and rcomp = t001.rcomp;
+  adrnr         : adrnr;
+  stceg         : stceg;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  fikrs         : fikrs
+    with foreign key [0..*,0..1] fm01
+      where mandt = t001.mandt
+        and fikrs = t001.fikrs;
+  xfmco         : xfmco;
+  xfmcb         : xfmcb;
+  xfmca         : xfmca;
+  txjcd         : txjcd_nstx;
+  fmhrdate      : fm_hrdate;
+  xtemplt       : fins_xtemplt;
+  transit_plant : fins_transit_plant;
+  include si_t001;
+ 
+}
+ 
+@EndUserText.label : 'Plants/Branches'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_CHARACTER_NUMERIC
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #C
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table t001w {
+  @AbapCatalog.foreignKey.label : 'Client'
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key mandt : mandt not null
+    with foreign key [0..*,1] t000
+      where mandt = t001w.mandt;
+  key werks : werks_d not null;
+  name1     : name1 not null;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  bwkey     : bwkey not null
+    with foreign key [0..*,1] t001k
+      where mandt = t001w.mandt
+        and bwkey = t001w.bwkey;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  kunnr     : kunnr_wk not null
+    with foreign key [0..*,0..1] kna1
+      where mandt = t001w.mandt
+        and kunnr = t001w.kunnr;
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  lifnr     : lifnr_wk not null
+    with foreign key [0..*,1] lfa1
+      where mandt = t001w.mandt
+        and lifnr = t001w.lifnr;
+  @AbapCatalog.foreignKey.label : 'Calendar ID'
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  fabkl     : fabkl
+    with foreign key [0..*,1] tfacd
+      where ident = t001w.fabkl;
+  include si_t001w;
+ 
+}
+ 
+@EndUserText.label : 'Valuation area'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_CHARACTER_NUMERIC
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #C
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table t001k {
+  @AbapCatalog.foreignKey.label : 'Client'
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key mandt : mandt not null
+    with foreign key [0..*,1] t000
+      where mandt = t001k.mandt;
+  key bwkey : bwkey not null
+    with value help bwkey_coll_shlp
+      where bwkey = t001k.bwkey;
+  @AbapCatalog.foreignKey.label : 'Company code'
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  bukrs     : bukrs not null
+    with foreign key [0..*,1] t001
+      where mandt = t001k.mandt
+        and bukrs = t001k.bukrs;
+  include si_t001k;
+ 
+}
+ 
+@EndUserText.label : 'Stammdatentabelle von Profit Centern'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_CHARACTER_NUMERIC
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table cepc {
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key mandt    : mandt not null
+    with foreign key [0..*,1] t000
+      where mandt = cepc.mandt;
+  key prctr    : prctr not null;
+  key datbi    : datbi not null;
+  @AbapCatalog.foreignKey.label : 'KOSTENRECHNUNGSKREIS'
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key kokrs    : kokrs not null
+    with foreign key [0..*,1] tka01
+      where mandt = cepc.mandt
+        and kokrs = cepc.kokrs;
+  datab        : datab;
+  ersda        : erfdt;
+  usnam        : erfnm;
+  merkmal      : fdmerkmal;
+  abtei        : abteil;
+  verak        : verapc;
+  @AbapCatalog.foreignKey.label : 'Adressschlusselzuordnung zu Benutzern'
+  @AbapCatalog.foreignKey.screenCheck : true
+  verak_user   : verapc_user
+    with foreign key usr02
+      where bname = cepc.verak_user
+    with value help user_comp
+      where bname = cepc.verak_user;
+  @AbapCatalog.foreignKey.screenCheck : true
+  waers        : waers
+    with foreign key tcurc
+      where mandt = cepc.mandt
+        and waers = cepc.waers;
+  nprctr       : nprctr;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  land1        : land1
+    with foreign key [1..*,0..1] t005
+      where mandt = cepc.mandt
+        and land1 = cepc.land1;
+  anred        : anred;
+  name1        : name1_gp;
+  name2        : name2_gp;
+  name3        : name3_gp;
+  name4        : name4_gp;
+  ort01        : ort01_gp;
+  ort02        : ort02_gp;
+  stras        : stras_gp;
+  pfach        : pfach;
+  pstlz        : pstlz;
+  pstl2        : pstl2;
+  @AbapCatalog.textLanguage
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  spras        : spras
+    with foreign key [1..*,1] t002
+      where spras = cepc.spras;
+  telbx        : telbx;
+  telf1        : telf1;
+  telf2        : telf2;
+  telfx        : telfx;
+  teltx        : teltx;
+  telx1        : telx1;
+  datlt        : datlt;
+  drnam        : pcdnam;
+  khinr        : phinr;
+  @AbapCatalog.foreignKey.screenCheck : true
+  bukrs        : bukrs
+    with foreign key t001
+      where mandt = cepc.mandt
+        and bukrs = cepc.bukrs;
+  @AbapCatalog.foreignKey.screenCheck : true
+  vname        : jv_name
+    with foreign key t8jv
+      where mandt = cepc.mandt
+        and bukrs = cepc.bukrs
+        and vname = cepc.vname;
+  @AbapCatalog.foreignKey.screenCheck : true
+  recid        : jv_recind
+    with foreign key t8jj
+      where mandt = cepc.mandt
+        and bukrs = cepc.bukrs
+        and recid = cepc.recid;
+  @AbapCatalog.foreignKey.screenCheck : true
+  etype        : jv_etype
+    with foreign key t8je
+      where mandt = cepc.mandt
+        and bukrs = cepc.bukrs
+        and etype = cepc.etype;
+  @AbapCatalog.foreignKey.screenCheck : true
+  txjcd        : txjcd
+    with foreign key ttxj
+      where mandt = cepc.mandt
+        and kalsm = cepc.kalsm
+        and txjcd = cepc.txjcd;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  regio        : regio
+    with foreign key [0..*,0..1] t005s
+      where mandt = cepc.mandt
+        and land1 = cepc.land1
+        and bland = cepc.regio;
+  @AbapCatalog.foreignKey.screenCheck : true
+  kvewe        : kvewe
+    with foreign key t681v
+      where kvewe = cepc.kvewe;
+  @AbapCatalog.foreignKey.screenCheck : true
+  kappl        : kappl
+    with foreign key t681a
+      where kappl = cepc.kappl;
+  @AbapCatalog.foreignKey.screenCheck : true
+  kalsm        : kalsm_d
+    with foreign key t683
+      where mandt = cepc.mandt
+        and kvewe = cepc.kvewe
+        and kappl = cepc.kappl
+        and kalsm = cepc.kalsm;
+  @AbapCatalog.foreignKey.screenCheck : true
+  logsystem    : logsystem not null
+    with foreign key tbdls
+      where logsys = cepc.logsystem;
+  lock_ind     : lock_ind not null;
+  @AbapCatalog.foreignKey.label : 'Template für Formelplanung'
+  @AbapCatalog.foreignKey.screenCheck : true
+  pca_template : pca_template
+    with foreign key [0..*,1] cotpl
+      where mandt = cepc.mandt
+        and kokrs = cepc.kokrs
+        and class = 'PCA'
+        and template = cepc.pca_template;
+  @AbapCatalog.foreignKey.screenCheck : true
+  segment      : fb_segment
+    with foreign key fagl_segm
+      where mandt = cepc.mandt
+        and segment = cepc.segment;
+  include incl_eew_cepc_ps;
+ 
+}
+ 
+@EndUserText.label : 'Kostenrechnungskreisfindung'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_CHARACTER
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #C
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table tka02 {
+  @AbapCatalog.foreignKey.screenCheck : true
+  key mandt : mandt not null
+    with foreign key t000
+      where mandt = tka02.mandt;
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key bukrs : bukrs not null
+    with foreign key [0..*,1] t001
+      where mandt = tka02.mandt
+        and bukrs = tka02.bukrs;
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key gsber : gsber not null
+    with foreign key [0..*,1] tgsb
+      where mandt = tka02.mandt
+        and gsber = tka02.gsber;
+  @AbapCatalog.foreignKey.keyType : #NON_KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  kokrs     : kokrs
+    with foreign key [1..*,1] tka01
+      where mandt = tka02.mandt
+        and kokrs = tka02.kokrs;
+ 
+}
+ 

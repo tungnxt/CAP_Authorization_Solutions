@@ -1,0 +1,88 @@
+{
+  "name": "manage-role",
+  "version": "1.0.0",
+  "description": "SAP CAP app - Manage Role (function scope + data scope, app-managed AuthZ)",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-test": "^1.0.1",
+    "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^9",
+    "axios": "^1.18.1",
+    "chai": "^6.2.2",
+    "mbt": "^1.2.49",
+    "mocha": "^10.8.2",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "test": "mocha test/**/*.test.js --timeout 60000"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": ":memory:"
+        }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "admin": {
+            "roles": [
+              "AppAdmin"
+            ]
+          },
+          "alice": {
+            "id": "U-ALICE"
+          },
+          "bob": {
+            "id": "U-BOB"
+          },
+          "carol": {
+            "id": "U-CAROL"
+          },
+          "dave": {
+            "id": "U-DAVE"
+          },
+          "user1": {
+            "id": "00000000-0000-4000-8000-000000000001"
+          },
+          "user2": {
+            "id": "00000000-0000-4000-8000-000000000002"
+          },
+          "user3": {
+            "id": "00000000-0000-4000-8000-000000000003"
+          },
+          "user4": {
+            "id": "00000000-0000-4000-8000-000000000004"
+          },
+          "user5": {
+            "id": "00000000-0000-4000-8000-000000000005"
+          }
+        }
+      }
+    },
+    "sql": {
+      "native_hana_associations": false
+    },
+    "[production]": {
+      "requires": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": {
+          "kind": "hana"
+        }
+      }
+    }
+  },
+  "private": true
+}

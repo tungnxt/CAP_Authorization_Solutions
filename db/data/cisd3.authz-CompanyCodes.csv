@@ -1,0 +1,88 @@
+code,name,city,country,currency,controllingArea
+0001,SAP A.G.,Walldorf,DE,EUR,0001
+0003,SAP US (IS-HT-SW),Palo Alto,US,USD,0003
+0MB1,IS-B Musterbank Deutschl.,Walldorf,DE,EUR,0MB1
+AE01,Country Template AE,Dubai,AE,AED,AE01
+AR01,Country Template AR,Argentinien,AR,ARS,
+ARG1,Country Template AR,Argentinien,AR,ARS,
+AT01,Country Template AT,Austria,AT,EUR,
+AU01,Country Template AU,Australia,AU,AUD,
+BE01,Country Template BE,Belgium,BE,EUR,BE01
+BR01,Country Template BR,Brazil,BR,BRL,
+CA01,Country Template CA,Canada,CA,CAD,CA01
+CA51,ITOCHU Canada Ltd.,Vancouver,CA,CAD,USV3
+CAJC,Marubeni-Itochu Steel CA.,Burnaby,CA,CAD,USV3
+CH01,Country Template CH,Switzerland,CH,CHF,CH01
+CL01,Country Template CL,Chile,CL,CLP,
+CN01,Country Template CN,China,CN,CNY,CN01
+CO01,Country Template CO,Colombia,CO,COP,CO01
+COPY,Copy from CC.0001,(Only G/L accounts B-seg),DE,EUR,
+CZ01,Country Template CZ,Czech Republic,CZ,CZK,CZ01
+DE01,Country Template DE,Germany,DE,EUR,DE01
+DE02,Country Template DE,Germany,DE,EUR,DE02
+DE20,ITOCHU Deutschland GmbH,Dusseldorf,DE,EUR,DEV3
+DK01,Country Template DK,Denmark,DK,DKK,
+EG01,Country Template Egypt,Cairo,EG,EGP,
+ES01,Country Template ES,Spain,ES,EUR,ES01
+FI01,Country Template FI,Finland,FI,EUR,FI01
+FR01,Country Template FR,France,FR,EUR,FR01
+FR16,ITOCHU FRANCE SAS,Paris,FR,EUR,FRV3
+GB01,Country Template GB,Great Britain,GB,GBP,
+GB14,ITOCHU Europe PLC,London,GB,GBP,GBV3
+HK01,Country Template HK,Hong Kong,HK,HKD,
+HU01,Country Template HU,Hungary,HU,HUF,HU01
+ID01,Country Template ID,Jakarta,ID,IDR,
+IE01,Country Template IE,Ireland,IE,EUR,
+IN01,"India Model Company, IN",Bangalore,IN,INR,IN01
+IT01,Country Template IT,Italy,IT,EUR,
+IT24,ITOCHU Italiana S.p.A.,Milano,IT,EUR,ITV3
+IT77,Country Template IT,Italy,IT,EUR,
+JP01,Country Template JP,Japan,JP,JPY,JP01
+KK01,Kingston Franchise DE,Germany,DE,EUR,
+KR01,Country Template KR,Seoul,KR,KRW,KR01
+KW01,Country Template KW,Kuwait City,KW,KWD,
+KZ01,Country Template KZ,Astana,KZ,KZT,KZ01
+LU01,Country Template LU,Luxembourg,LU,EUR,
+MCA1,MCA Bank Backpack (bal.),Walldorf,DE,USD,MCA
+MCA2,MCA Bank Backpack (doc.),Walldorf,DE,USD,MCA
+MCA3,MCA Bank 4-pack (bal.),Walldorf,DE,CHF,MCA
+MCA4,MCA Bank 4-pack (doc.),Walldorf,DE,CHF,MCA
+MX01,Country Template MX,Mexico,MX,MXN,
+MX03,Country Template MX,Mexico,MX,MXN,
+MX52,ITOCHU Mexico S.A. D.E.,MEXICO CITY,MX,MXN,USK4
+MXJB,Machine-Technos Mexico SA,Aguascalientes,MX,MXN,USK4
+MY01,Country Template MY,Kuala Lumpur,MY,MYR,
+NL01,Country Template NL,The Netherlands,NL,EUR,
+NO01,Country Template NO,Norway,NO,NOK,NO01
+NZ01,Country Template NZ,New Zealand,NZ,NZD,
+PE01,Country Template PE,Perú,PE,PEN,PE01
+PH01,Country Template PH,Manila,PH,PHP,
+PL01,Country Template PL,Poland,PL,PLN,PL01
+PT01,Country Template PT,Portugal,PT,EUR,PT01
+PT02,Country Template PT (SNC),Portugal,PT,EUR,
+QA01,Country Template QA,Doha,QA,QAR,
+RECO,Sondereigentum (WEG),Walldorf,DE,EUR,RECO
+REOB,Referenz Objektmandate,Walldorf,DE,EUR,REOB
+RERF,WEG Referenzbuchungskreis,Walldorf,DE,EUR,RERF
+RS01,Country template RS,Serbia,RS,RSD,
+RU01,Country Template RU,Russia,RU,RUB,RU01
+SE01,Country Template SE,Sweden,SE,SEK,SE01
+SG01,SAP Asia,Singapore,SG,SGD,SG01
+SK01,Country Template SK,Slovak Republic,SK,EUR,SK01
+SLE0,Musterbank,Frankfurt,DE,EUR,
+TH01,Country Template TH,Bangkok,TH,THB,
+TR01,Country Template TR,Turkey,TR,TRY,TR01
+TW01,Country Template TW,Taipei,TW,TWD,TW01
+UA01,Country Template UA,Ukraine,UA,UAH,UA01
+US01,Country Template US,U.S.A.,US,USD,US01
+US50,ITOCHU International Inc.,New York,US,USD,USV3
+USIA,ICREST International LLC,El Segundo,US,USD,USV3
+USIB,"Oilseeds Internat'l, Ltd.",San Francisco,US,USD,USV3
+USIC,Quality Technology Int'l,Elgin,US,USD,USV3
+USID,ITOCHU PROMINENT USA LLC.,New York,US,USD,USV3
+USJA,ITOCHU Treasury Ctr. Amer,New York,US,USD,USV3
+USJD,"ITOCHU AVIATION, INC.",EL SEGUNDO,US,USD,USV3
+VE01,Country Template VE,Venezuela,VE,VEB,
+VN41,"ITOCHU Vietnam Co., Ltd.",Ho Chi Minh City,VN,VND,
+ZA01,Country Template ZA,South Africa,ZA,ZAR,
+ZA33,ITOCHU Johannesburg,Fourways,ZA,ZAR,ZAV3

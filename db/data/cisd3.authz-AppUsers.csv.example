@@ -1,0 +1,7 @@
+userId,loginName,email,displayName,active
+00000000-0000-4000-8000-000000000001,user1@example.com,user1@example.com,User One,true
+00000000-0000-4000-8000-000000000002,user2@example.com,user2@example.com,User Two,true
+00000000-0000-4000-8000-000000000003,user3@example.com,user3@example.com,User Three,true
+00000000-0000-4000-8000-000000000004,user4@example.com,user4@example.com,User Four,true
+00000000-0000-4000-8000-000000000005,user5@example.com,user5@example.com,User Five,true
+00000000-0000-4000-8000-000000000006,user6@example.com,user6@example.com,User Six,true

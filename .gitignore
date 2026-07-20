@@ -1,0 +1,13 @@
+node_modules/
+gen/
+resources/
+mta_archives/
+*.db
+*.db-*
+.env
+default-*.json
+
+# Seed user chứa PII thật (email, tên, SCIM ID từ IAS) — KHÔNG commit.
+# Xem file .example cùng thư mục để biết format.
+db/data/cisd3.authz-AppUsers.csv
+db/data/cisd3.authz-UserOrg.csv

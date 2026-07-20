@@ -1,0 +1,39 @@
+{
+  "xsappname": "manage-role",
+  "tenant-mode": "dedicated",
+  "description": "Manage-Role — app-managed authorization",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.AppAdmin",
+      "description": "Quản trị phân quyền. Bootstrap: gán qua BTP Role Collection cho 1-2 người gốc."
+    },
+    {
+      "name": "$XSAPPNAME.FIN_APP_ADMIN",
+      "description": "Quản trị app Payment Approval. Chỉ dùng khi appManagedAuthz=false (chế độ BTP native)."
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "AppAdmin",
+      "description": "Quản trị phân quyền",
+      "scope-references": ["$XSAPPNAME.AppAdmin"]
+    },
+    {
+      "name": "FIN_APP_ADMIN",
+      "description": "Quản trị Payment Approval",
+      "scope-references": ["$XSAPPNAME.FIN_APP_ADMIN"]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "ManageRole_AppAdmin",
+      "description": "Quản trị phân quyền — gán cho admin gốc",
+      "role-template-references": ["$XSAPPNAME.AppAdmin"]
+    },
+    {
+      "name": "ManageRole_FIN_APP_ADMIN",
+      "description": "Dự phòng cho chế độ BTP native (appManagedAuthz=false)",
+      "role-template-references": ["$XSAPPNAME.FIN_APP_ADMIN"]
+    }
+  ]
+}
